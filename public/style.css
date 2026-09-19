@@ -129,9 +129,6 @@ input {
     width: 42px;
     height: 42px;
 
-    border:
-        1px solid var(--gold);
-
     border-radius: 50%;
 
     display: flex;
