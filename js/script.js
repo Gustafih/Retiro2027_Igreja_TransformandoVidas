@@ -4,7 +4,7 @@
 
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbxXKXiX9gHP-V0A4rz9JMT7QMLh327RgoYvQ8FOmXJCnG1JNYssk-CoJtuiwh0cns4p/exec";
+"https://script.google.com/macros/s/AKfycbzbR8fCsrQ07jIWTa-6IMbhT-jN_9NiuqjvYay-xrIh0LsLe1jRSHioMzi5Hzzy9CZHKg/exec";
 
 
 
