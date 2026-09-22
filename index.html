@@ -98,7 +98,7 @@
 
 
     <!-- ==================================
-         HERO
+         main
     =================================== -->
 
     <main>
@@ -299,7 +299,7 @@
              GALERIA
         =================================== -->
 
-        <section
+        <!-- <section
             class="section gallery-section"
             id="galeria"
         >
@@ -362,7 +362,7 @@
 
             </div>
 
-        </section>
+        </section> -->
 
 
 
@@ -483,22 +483,19 @@
 
 
 
-                    <!-- IDADE -->
+                    <!-- DATA_NASCIMENTO -->
 
                     <div class="form-group">
 
                         <label for="idade">
-                            Qual é sua idade?
+                            Qual data você nasceu?
                             <span>*</span>
                         </label>
 
                         <input
-                            type="number"
-                            id="idade"
-                            name="idade"
-                            min="1"
-                            max="120"
-                            placeholder="Ex.: 25"
+                            type="date"
+                            id="date"
+                            name="date"
                             required
                         >
 
@@ -716,7 +713,7 @@
 
                     <!-- TRANSPORTE -->
 
-                    <div class="form-group full question-group">
+                    <!-- <div class="form-group full question-group">
 
                         <label>
                             Vai precisar de transporte
@@ -759,7 +756,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
 
 
@@ -784,20 +781,119 @@
 
 
 
-                    <!-- CARGO -->
+                    <!-- CARGO NA IGREJA -->
 
                     <div class="form-group full">
 
-                        <label for="cargo">
-                            Possui algum cargo na igreja?
-                        </label>
+                    <label for="cargo">
+                        Possui algum cargo na igreja?
+                        <span>*</span>
+                    </label>
 
-                        <input
-                            type="text"
-                            id="cargo"
-                            name="cargo"
-                            placeholder="Ex.: Líder, diácono, músico... ou Não"
-                        >
+
+                    <select
+                    id="cargo"
+                    name="cargo"
+                    required
+                    >
+
+                    <option value="">
+                    Selecione uma opção
+                    </option>
+
+
+                    <option value="Bispo">
+                    Bispo
+                    </option>
+
+
+                    <option value="Pastor">
+                    Pastor
+                    </option>
+
+
+                    <option value="Líder">
+                    Líder
+                    </option>
+
+
+                    <option value="Presbítero">
+                    Presbítero
+                    </option>
+
+
+                    <option value="Evangelista">
+                    Evangelista
+                    </option>
+
+
+                    <option value="Missionário">
+                    Missionário
+                    </option>
+
+
+                    <option value="Diácono">
+                    Diácono
+                    </option>
+
+
+                    <option value="Obreiro">
+                    Obreiro
+                    </option>
+
+
+                    <option value="Levita">
+                    Levita
+                    </option>
+
+
+                    <option value="Membro">
+                    Membro
+                    </option>
+
+
+                    <option value="Não tenho cargo">
+                    Não tenho cargo
+                    </option>
+
+
+                    </select>
+
+
+                    </div>
+
+
+
+                    <!-- ÁREA DO LÍDER -->
+
+                    <div
+                    class="form-group full"
+                    id="liderAreaContainer"
+                    style="display:none;"
+                    >
+
+
+                    <label for="liderArea">
+
+                    Qual área você lidera?
+
+                    <span>*</span>
+
+                    </label>
+
+
+                    <input
+
+                    type="text"
+
+                    id="liderArea"
+
+                    name="liderArea"
+
+                    placeholder="Ex.: Líder de jovens, louvor, célula..."
+
+                    >
+
 
                     </div>
 
