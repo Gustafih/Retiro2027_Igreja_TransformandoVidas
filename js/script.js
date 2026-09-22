@@ -1,12 +1,11 @@
 // ===============================================
-// CONFIGURAÇÃO POWER AUTOMATE / EXCEL ONLINE
+// CONFIGURAÇÃO GOOGLE APPS SCRIPT
 // ===============================================
 
-// Depois você vai colocar aqui o link do Webhook
-// criado no Power Automate
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwJ8y4qiXCKRq9SkWx4gU6_rQMhdrkJqo9IAFwwcmWvTk7nfJGZsOH9A8zFW3y_geIIrQ/exec";
+"https://script.google.com/macros/s/AKfycbxXKXiX9gHP-V0A4rz9JMT7QMLh327RgoYvQ8FOmXJCnG1JNYssk-CoJtuiwh0cns4p/exec";
+
 
 
 const LINK_GRUPO_WHATSAPP =
@@ -15,9 +14,11 @@ const LINK_GRUPO_WHATSAPP =
 
 
 
+
 // ===============================================
 // MENU MOBILE
 // ===============================================
+
 
 const menuToggle =
 document.getElementById("menuToggle");
@@ -27,7 +28,9 @@ const nav =
 document.getElementById("nav");
 
 
+
 if(menuToggle){
+
 
 menuToggle.addEventListener(
 "click",
@@ -37,6 +40,7 @@ nav.classList.toggle("active");
 
 });
 
+
 }
 
 
@@ -44,6 +48,7 @@ nav.classList.toggle("active");
 document
 .querySelectorAll(".nav a")
 .forEach(link=>{
+
 
 link.addEventListener(
 "click",
@@ -53,7 +58,10 @@ nav.classList.remove("active");
 
 });
 
+
 });
+
+
 
 
 
@@ -63,8 +71,10 @@ nav.classList.remove("active");
 // MÁSCARA WHATSAPP
 // ===============================================
 
+
 const telefone =
 document.getElementById("telefone");
+
 
 
 if(telefone){
@@ -124,7 +134,8 @@ valor.replace(
 
 
 
-this.value = valor;
+this.value =
+valor;
 
 
 });
@@ -156,6 +167,8 @@ const liderArea =
 document.getElementById(
 "liderArea"
 );
+
+
 
 
 
@@ -222,10 +235,18 @@ document.getElementById(
 
 
 
+const formMessage =
+document.getElementById(
+"formMessage"
+);
+
+
+
 const submitButton =
 document.getElementById(
 "submitButton"
 );
+
 
 
 const buttonText =
@@ -234,31 +255,11 @@ document.getElementById(
 );
 
 
+
 const loader =
 document.getElementById(
 "loader"
 );
-
-
-const formMessage =
-document.getElementById(
-"formMessage"
-);
-
-
-
-const successScreen =
-document.getElementById(
-"successScreen"
-);
-
-
-
-const successName =
-document.getElementById(
-"successName"
-);
-
 
 
 
@@ -267,23 +268,24 @@ document.getElementById(
 
 form.addEventListener(
 "submit",
-async(event)=>{
+async(e)=>{
 
 
-event.preventDefault();
+e.preventDefault();
 
 
 
 // =================================
-// VALIDAÇÃO
+// PEGAR DADOS
 // =================================
-
-
-let erros=[];
 
 
 const dadosForm =
 new FormData(form);
+
+
+
+let erros=[];
 
 
 
@@ -299,15 +301,22 @@ const igreja =
 dadosForm.get("igreja");
 
 
-const cargoSelecionado =
+const cargo =
 dadosForm.get("cargo");
+
+
+
+
+// =================================
+// VALIDAÇÕES
+// =================================
 
 
 
 if(nome.length < 5){
 
 erros.push(
-"Informe seu nome completo"
+"Digite seu nome completo"
 );
 
 }
@@ -336,10 +345,10 @@ erros.push(
 
 
 
-if(!cargoSelecionado){
+if(!cargo){
 
 erros.push(
-"Selecione seu cargo na igreja"
+"Selecione seu cargo"
 );
 
 }
@@ -348,19 +357,22 @@ erros.push(
 
 
 
-if(erros.length>0){
+if(erros.length > 0){
 
 
 mostrarMensagem(
+
 `
-⚠️ Corrija os seguintes campos:
+⚠️ Verifique os campos:
 
 <br><br>
 
 ${erros.join("<br>")}
 
 `,
+
 "error"
+
 );
 
 
@@ -373,8 +385,9 @@ return;
 
 
 
+
 // =================================
-// BOTÃO CARREGANDO
+// CARREGAMENTO
 // =================================
 
 
@@ -392,9 +405,8 @@ loader.style.display="block";
 
 
 // =================================
-// ORGANIZAR DADOS PARA EXCEL
+// ORGANIZAR DADOS
 // =================================
-
 
 
 const dados = {
@@ -408,68 +420,58 @@ new Date()
 ),
 
 
-nome:
 
+nome:
 dadosForm.get("nome"),
 
 
 
 telefone:
-
 dadosForm.get("telefone"),
 
 
 
 dataNascimento:
-
 dadosForm.get("date"),
 
 
 
 cidade:
-
 dadosForm.get("cidade"),
 
 
 
 endereco:
-
 dadosForm.get("endereco"),
 
 
 
 bairro:
-
 dadosForm.get("bairro"),
 
 
 
 cristao:
-
 dadosForm.get("cristao"),
 
 
 
 retiroAnterior:
-
 dadosForm.get("retiroAnterior"),
 
 
 
 batizado:
-
 dadosForm.get("batizado"),
 
 
 
 igreja:
-
 dadosForm.get("igreja"),
 
 
 
 cargo:
-
 dadosForm.get("cargo"),
 
 
@@ -486,6 +488,7 @@ dormir:
 
 dadosForm.get("dormir")
 
+
 };
 
 
@@ -493,11 +496,9 @@ dadosForm.get("dormir")
 
 
 
-
 // =================================
-// ENVIO PARA EXCEL ONLINE
+// ENVIAR GOOGLE
 // =================================
-
 
 
 try{
@@ -509,13 +510,17 @@ SCRIPT_URL,
 
 {
 
+
 method:"POST",
 
+
 mode:"no-cors",
+
 
 body:
 
 JSON.stringify(dados)
+
 
 }
 
@@ -524,30 +529,49 @@ JSON.stringify(dados)
 
 
 
-// ESCONDE FORMULÁRIO
-
-form.style.display="none";
-
-
-
-// MOSTRA SUCESSO
+// =================================
+// SUCESSO
+// =================================
 
 
-successName.innerHTML=
+mostrarMensagem(
 
 `
-Obrigado,
-<b>${dados.nome}</b>!
-`;
+✅ Inscrição realizada com sucesso!
+
+<br><br>
+
+Você será direcionado para o grupo oficial.
+
+`,
+
+"success"
+
+);
 
 
 
-successScreen.style.display=
-"flex";
+setTimeout(()=>{
+
+
+window.open(
+LINK_GRUPO_WHATSAPP,
+"_blank"
+);
+
+
+
+},2000);
+
+
+
+form.reset();
 
 
 
 }
+
+
 
 catch(error){
 
@@ -559,7 +583,7 @@ console.error(error);
 mostrarMensagem(
 
 `
-❌ Não foi possível concluir sua inscrição.
+❌ Erro ao enviar inscrição.
 
 Tente novamente.
 
@@ -568,7 +592,6 @@ Tente novamente.
 "error"
 
 );
-
 
 
 }
@@ -590,9 +613,7 @@ loader.style.display="none";
 }
 
 
-
 });
-
 
 
 
@@ -610,16 +631,15 @@ tipo
 ){
 
 
-formMessage.innerHTML=
+formMessage.innerHTML =
 mensagem;
 
 
-formMessage.className=
+formMessage.className =
 "form-message "+tipo;
 
 
-formMessage.style.display=
+formMessage.style.display =
 "block";
-
 
 }
