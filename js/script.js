@@ -5,8 +5,8 @@
 // Depois você vai colocar aqui o link do Webhook
 // criado no Power Automate
 
-const EXCEL_WEBHOOK_URL =
-"https://COLE_AQUI_SEU_WEBHOOK";
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwJ8y4qiXCKRq9SkWx4gU6_rQMhdrkJqo9IAFwwcmWvTk7nfJGZsOH9A8zFW3y_geIIrQ/exec";
 
 
 const LINK_GRUPO_WHATSAPP =
@@ -505,30 +505,21 @@ try{
 
 await fetch(
 
-EXCEL_WEBHOOK_URL,
+SCRIPT_URL,
 
 {
 
 method:"POST",
 
-
-headers:{
-
-"Content-Type":
-"application/json"
-
-},
-
+mode:"no-cors",
 
 body:
 
 JSON.stringify(dados)
 
-
 }
 
 );
-
 
 
 
