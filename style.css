@@ -1766,3 +1766,288 @@ font-weight:600;
 
 
 }
+
+
+
+/* ==================================
+   CARD WHATSAPP
+================================== */
+
+.whatsapp-card {
+
+    grid-column: 1 / -1;
+
+    margin-top: 40px;
+    padding: 40px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075e54 0%,
+            #128c7e 50%,
+            #25d366 100%
+        );
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 45px rgba(7, 94, 84, 0.35);
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation: fadeInUp 0.6s ease;
+}
+
+
+.whatsapp-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    right: -50%;
+
+    width: 200%;
+    height: 200%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 70%
+        );
+
+    animation: pulseGlow 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+.whatsapp-card-icon {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    position: relative;
+
+    z-index: 1;
+
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+
+.whatsapp-card-title {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1.6rem;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    margin-bottom: 12px;
+
+    letter-spacing: 0.5px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.whatsapp-card-text {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 1rem;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    line-height: 1.6;
+
+    max-width: 460px;
+
+    margin: 0 auto 28px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.whatsapp-card-text strong {
+
+    color: #ffffff;
+    font-weight: 700;
+}
+
+
+.whatsapp-card-button {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 16px 36px;
+
+    background: #ffffff;
+
+    color: #075e54;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    position: relative;
+
+    z-index: 1;
+
+    cursor: pointer;
+}
+
+
+.whatsapp-card-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.3);
+
+    background: #f0fdf4;
+}
+
+
+.whatsapp-card-button:active {
+
+    transform: translateY(-1px);
+}
+
+
+.whatsapp-card-note {
+
+    margin-top: 18px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 0.8rem;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ==================================
+   ANIMAÇÕES
+================================== */
+
+@keyframes fadeInUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes floatIcon {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+@keyframes pulseGlow {
+
+    0%, 100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* ==================================
+   RESPONSIVO
+================================== */
+
+@media (max-width: 600px) {
+
+    .whatsapp-card {
+        padding: 30px 20px;
+    }
+
+    .whatsapp-card-title {
+        font-size: 1.3rem;
+    }
+
+    .whatsapp-card-text {
+        font-size: 0.92rem;
+    }
+
+    .whatsapp-card-button {
+        padding: 14px 26px;
+        font-size: 0.92rem;
+        width: 100%;
+    }
+
+    .whatsapp-card-icon {
+        width: 68px;
+        height: 68px;
+    }
+
+}
