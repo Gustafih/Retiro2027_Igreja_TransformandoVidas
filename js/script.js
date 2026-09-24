@@ -85,6 +85,7 @@ const submitButton = document.getElementById("submitButton");
 const buttonText = document.getElementById("buttonText");
 const loader = document.getElementById("loader");
 const whatsappCard = document.getElementById("whatsappCard");
+const overlay = document.getElementById("overlay");
 
 
 form.addEventListener("submit", async (e) => {
@@ -200,6 +201,7 @@ form.addEventListener("submit", async (e) => {
 
     if (whatsappCard) {
       whatsappCard.style.display = "block";
+      overlay.style.display = "block";
 
       setTimeout(() => {
         whatsappCard.scrollIntoView({
