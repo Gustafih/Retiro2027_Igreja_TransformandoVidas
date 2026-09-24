@@ -40,7 +40,7 @@ if (telefoneInput) {
     let valor = this.value.replace(/\D/g, "");
     valor = valor.substring(0, 11);
 
-    if (valor.length <= 10) {
+    if (valor.length <= 11) {
       valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
       valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
     } else {
