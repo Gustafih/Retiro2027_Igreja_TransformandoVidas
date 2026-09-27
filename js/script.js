@@ -6,7 +6,7 @@ const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwewLZtw_opdvG1JEuDAqsc6hV7XCk7dpSPrGzI36BEQq73IQbLDtOCQred80qK_E-oRA/exec";
 
 const LINK_GRUPO_WHATSAPP =
-"https://chat.whatsapp.com/EOD0rSDROBt6HjCfKZm4TR";
+"https://chat.whatsapp.com/JAg2s212IhC0WL5tqFOaev";
 
 
 // ===============================================
