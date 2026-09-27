@@ -6,7 +6,7 @@ const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbz7ilbatD0DE-3a1oT6J7M-v9z4dsxRUTuMv4elRzXitcDPUmyvL77ZyKIjK4Hwl5hIeQ/exec";
 
 const LINK_GRUPO_WHATSAPP =
-"https://chat.whatsapp.com/COLE_SEU_LINK";
+"https://chat.whatsapp.com/EOD0rSDROBt6HjCfKZm4TR";
 
 
 // ===============================================
