@@ -239,14 +239,25 @@ form.addEventListener("submit", async (e) => {
 // BOTÃO DO CARD WHATSAPP (reset do form)
 // ===============================================
 
+// ===============================================
+// BOTÃO DO CARD WHATSAPP (link + reset do form)
+// ===============================================
+
 if (whatsappCard) {
   const botaoZap = whatsappCard.querySelector(".whatsapp-card-button");
 
   if (botaoZap) {
+    // 1) Define o link do grupo
+    botaoZap.setAttribute("href", LINK_GRUPO_WHATSAPP);
+    botaoZap.setAttribute("target", "_blank");
+    botaoZap.setAttribute("rel", "noopener noreferrer");
+
+    // 2) Ao clicar, reseta o form e esconde o card
     botaoZap.addEventListener("click", () => {
       form.reset();
       formMessage.style.display = "none";
       whatsappCard.style.display = "none";
+      overlay.style.display = "none";
     });
   }
 }
