@@ -112,14 +112,12 @@ form.addEventListener("submit", async (e) => {
     erros.push("Digite seu nome completo");
   }
 
-  // Validação com libphonenumber (precisa da tag <script> no HTML)
   if (typeof libphonenumber !== "undefined") {
     const numeroValido = libphonenumber.isValidPhoneNumber(telefone, "BR");
     if (!numeroValido) {
       erros.push("Número de telefone inválido. Verifique o DDD e o número");
     }
   } else {
-    // Fallback caso a lib não carregue
     if (telefone.replace(/\D/g, "").length < 10) {
       erros.push("Telefone inválido");
     }
@@ -234,6 +232,7 @@ form.addEventListener("submit", async (e) => {
     buttonText.style.display = "inline";
     loader.style.display = "none";
   }
+}); // ✅ FECHA O addEventListener DO SUBMIT
 
 
 // ===============================================
