@@ -3,7 +3,7 @@
 // ===============================================
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbz7ilbatD0DE-3a1oT6J7M-v9z4dsxRUTuMv4elRzXitcDPUmyvL77ZyKIjK4Hwl5hIeQ/exec";
+"https://script.google.com/macros/s/AKfycbwewLZtw_opdvG1JEuDAqsc6hV7XCk7dpSPrGzI36BEQq73IQbLDtOCQred80qK_E-oRA/exec";
 
 const LINK_GRUPO_WHATSAPP =
 "https://chat.whatsapp.com/EOD0rSDROBt6HjCfKZm4TR";
@@ -186,6 +186,17 @@ form.addEventListener("submit", async (e) => {
 
     const resultado = await resposta.json();
 
+    // =================================
+    // TELEFONE JÁ CADASTRADO
+    // =================================
+    if (resultado.status === "duplicado") {
+      mostrarMensagem(
+        `⚠️ Este número de WhatsApp já realizou a inscrição.<br>Cada pessoa pode se inscrever apenas uma vez.`,
+        "error"
+      );
+      return;
+    }
+
     if (resultado.status !== "ok") {
       throw new Error(resultado.mensagem || "Erro desconhecido");
     }
@@ -223,7 +234,6 @@ form.addEventListener("submit", async (e) => {
     buttonText.style.display = "inline";
     loader.style.display = "none";
   }
-});
 
 
 // ===============================================
